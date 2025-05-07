@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Limerick Maps</title>
+</head>
+<body>
+  <iframe src="assets/vectorizedmapweb.svg" id="limereckmap" width="100%" height="1500px" style="border: none;"></iframe>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      window.addEventListener("load", function() {
+        const iframe = document.getElementById("limereckmap");
+        const svgDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const svgElement = svgDoc.querySelector("svg");
+
+        // Select the limericksclubs element
+        const limericksClubs = svgElement.getElementById('limericksclubs');
+
+        if (limericksClubs) {
+          // Use GSAP to create a looping shake animation
+          gsap.to(limericksClubs, {
+            x: '+=2', // Move 2px to the right
+            yoyo: true, // Reverse the animation
+            repeat: -1, // Infinite loop
+            duration: 0.1, // Duration of each shake
+            ease: "power1.inOut", // Smooth easing
+            xoyo: true,
+            repeatDelay: 0.1,
+            y: '+=2'
+          });
+        }
+        
+        //For Group 1
+        const group1 = svgElement.getElementById('numberinmap1');
+        const relatedGroups1 = ['num1', 'tropics']; // Add other group IDs here
+  
+        // Add event listeners to all paths within the group
+        const paths1 = group1.querySelectorAll('path');
+        paths1.forEach((path) => {
+          path.addEventListener('mouseenter', () => {
+            path.style.fill = '#a01889'; // Change color on hover
+            path.style.cursor = 'pointer'; // Change cursor to pointer
+  
+            // Change color of related groups
+            relatedGroups1.forEach((groupId) => {
+              const relatedGroup = svgElement.getElementById(groupId);
+              if (relatedGroup) {
+                const relatedPaths = relatedGroup.querySelectorAll('path');
+                relatedPaths.forEach((relatedPath) => {
+                  relatedPath.style.fill = '#a01889';
+                });
+              }
+            });
+          });
+  
+          path.addEventListener('mouseleave', () => {
+            path.style.fill = '#000'; // Revert to original color
+  
+            // Revert color of related groups
+            relatedGroups1.forEach((groupId) => {
+              const relatedGroup = svgElement.getElementById(groupId);
+              if (relatedGroup) {
+                const relatedPaths = relatedGroup.querySelectorAll('path');
+                relatedPaths.forEach((relatedPath) => {
+                  relatedPath.style.fill = '#000';
+                });
+              }
+            });
+          });
+
+          // Add onclick event to redirect
+          path.addEventListener('click', () => {
+            window.open('https://example.com/group1', '_blank');
+          });
+        });
+        
+        //For Group 2
+        const group2 = svgElement.getElementById('numberinmap2');
+        const relatedGroups2 = ['num2', 'bakerplace']; // Add other group IDs here
+  
+        // Add event listeners to all paths within the group
+        const paths2 = group2.querySelectorAll('path');
+        paths2.forEach((path) => {
+          path.addEventListener('mouseenter', () => {
+            path.style.fill = '#f7941e'; // Change color on hover
+            path.style.cursor = 'pointer'; // Change cursor to pointer
+  
+            // Change color of related groups
+            relatedGroups2.forEach((groupId) => {
+              const relatedGroup = svgElement.getElementById(groupId);
+              if (relatedGroup) {
+                const relatedPaths = relatedGroup.querySelectorAll('path');
+                relatedPaths.forEach((relatedPath) => {
+                  relatedPath.style.fill = '#f7941e';
+                });
+              }
+            });
+          });
+  
+          path.addEventListener('mouseleave', () => {
+            path.style.fill = '#000'; // Revert to original color
+  
+            // Revert color of related groups
+            relatedGroups2.forEach((groupId) => {
+              const relatedGroup = svgElement.getElementById(groupId);
+              if (relatedGroup) {
+                const relatedPaths = relatedGroup.querySelectorAll('path');
+                relatedPaths.forEach((relatedPath) => {
+                  relatedPath.style.fill = '#000';
+                });
+              }
+            });
+          });
+          // Add onclick event to redirect
+          path.addEventListener('click', () => {
+            window.open('https://example.com/group1', '_blank');
+          });
+        });
+
+
+      });
+    });
+  </script>
+</body>
+</html>
