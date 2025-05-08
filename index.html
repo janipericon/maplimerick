@@ -51,6 +51,10 @@
                 const relatedPaths = relatedGroup.querySelectorAll('path');
                 relatedPaths.forEach((relatedPath) => {
                   relatedPath.style.fill = '#a01889';
+                  if (groupId === 'tropics') {
+                    relatedPath.style.stroke = '#a01889'; // Set stroke color for tropics
+                    relatedPath.style.strokeWidth = '3px'; // Set stroke width for tropics
+                  }
                 });
               }
             });
@@ -66,6 +70,10 @@
                 const relatedPaths = relatedGroup.querySelectorAll('path');
                 relatedPaths.forEach((relatedPath) => {
                   relatedPath.style.fill = '#000';
+                  if (groupId === 'tropics') {
+                    relatedPath.style.stroke = '#000'; 
+                    relatedPath.style.strokeWidth = '1px'; 
+                  }
                 });
               }
             });
@@ -95,6 +103,10 @@
                 const relatedPaths = relatedGroup.querySelectorAll('path');
                 relatedPaths.forEach((relatedPath) => {
                   relatedPath.style.fill = '#f7941e';
+                  if (groupId === 'bakerplace') {
+                    relatedPath.style.stroke = '#f7941e';
+                    relatedPath.style.strokeWidth = '3px'; 
+                  }
                 });
               }
             });
@@ -110,6 +122,10 @@
                 const relatedPaths = relatedGroup.querySelectorAll('path');
                 relatedPaths.forEach((relatedPath) => {
                   relatedPath.style.fill = '#000';
+                  if (groupId === 'bakerplace') {
+                    relatedPath.style.stroke = '#000';
+                    relatedPath.style.strokeWidth = '1px'; 
+                  }
                 });
               }
             });
